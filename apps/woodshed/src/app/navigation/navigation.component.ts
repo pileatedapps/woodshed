@@ -1,6 +1,6 @@
-import { Component, inject, OnInit, Renderer2 } from '@angular/core';
+import { Component, inject, Renderer2 } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, UpperCasePipe } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -11,6 +11,7 @@ import { RouterOutlet } from '@angular/router';
 import { MatTooltip } from '@angular/material/tooltip';
 import { MatButtonToggle, MatButtonToggleGroup } from '@angular/material/button-toggle';
 import { Observable } from 'rxjs';
+import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
   selector: 'app-navigation',
@@ -27,14 +28,18 @@ import { Observable } from 'rxjs';
     RouterOutlet,
     MatTooltip,
     MatButtonToggleGroup,
-    MatButtonToggle
+    MatButtonToggle,
+    MatMenu,
+    MatMenuTrigger,
+    MatMenuItem,
+    UpperCasePipe
   ]
 })
 export class NavigationComponent {
   private breakpointObserver = inject(BreakpointObserver);
   private renderer: Renderer2 = inject(Renderer2);
   mode: 'light' | 'dark' = 'dark';
-  theme = 'blue';
+  theme: 'blue' | 'green' = 'green';
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -44,5 +49,9 @@ export class NavigationComponent {
 
   setMode(mode: 'light' | 'dark') {
     this.mode = mode;
+  }
+
+  setTheme(theme: 'blue' | 'green') {
+    this.theme = theme;
   }
 }

@@ -24,17 +24,26 @@
       <span>Woodshed</span>
       <span id="toolbar-spacer"></span>
       <span>
+        <button mat-raised-button [matMenuTriggerFor]="menu" matTooltip="Select a theme">
+          <mat-icon>palette</mat-icon>{{theme | uppercase}}
+        </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item id="theme-item-blue" (click)="setTheme('blue')">Blue</button>
+            <button mat-menu-item id="them-item-green" (click)="setTheme('green')">Green</button>
+          </mat-menu>
+      </span>
+      <span>
         <mat-button-toggle-group name="fontStyle" aria-label="Toggle between Light and Dark Mode">
-        <mat-button-toggle
-          [checked]="mode === 'light'" (click)="setMode('light')" value="light" matTooltip="View in Light Mode">
-          <mat-icon>light_mode</mat-icon>
-        </mat-button-toggle>
-        <mat-button-toggle
-          [checked]="mode === 'dark'"
-          (click)="setMode('dark')" value="dark" matTooltip="View in Mode">
-          <mat-icon>dark_mode</mat-icon>
-        </mat-button-toggle>
-      </mat-button-toggle-group>
+          <mat-button-toggle
+            [checked]="mode === 'light'" (click)="setMode('light')" value="light" matTooltip="View in Light Mode">
+            <mat-icon>light_mode</mat-icon>
+          </mat-button-toggle>
+          <mat-button-toggle
+            [checked]="mode === 'dark'"
+            (click)="setMode('dark')" value="dark" matTooltip="View in Mode">
+            <mat-icon>dark_mode</mat-icon>
+          </mat-button-toggle>
+        </mat-button-toggle-group>
       </span>
     </mat-toolbar>
     <!-- Add Content Here -->
