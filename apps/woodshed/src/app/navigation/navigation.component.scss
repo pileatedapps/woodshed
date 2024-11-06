@@ -1,106 +1,114 @@
 
 @use '@angular/material' as mat;
-@use '../../styles/m3-blue-theme' as m3-blue-theme;
-@use '../../styles/m3-green-theme' as m3-green-theme;
+@use '../../styles/m3-pale-blue-theme' as m3-pale-blue-theme;
+@use '../../styles/m3-pale-green-theme' as m3-pale-green-theme;
 
-#main-nav[theme="blue"][mode="light"] {
+#main-nav[theme="pale-blue"][mode="light"] {
   .mat-app-background {
-    background-color: mat.get-theme-color(m3-blue-theme.$light-theme, neutral, 96);
-    color: mat.get-theme-color(m3-blue-theme.$light-theme, neutral, 10);
+    background-color: mat.get-theme-color(m3-pale-blue-theme.$light-theme, neutral, 96);
+    color: mat.get-theme-color(m3-pale-blue-theme.$light-theme, neutral, 10);
   }
 
   .mat-toolbar {
-    background-color: mat.get-theme-color(m3-blue-theme.$light-theme, primary, 90);
-    color: mat.get-theme-color(m3-blue-theme.$light-theme, neutral, 10);
-    border-bottom-color: mat.get-theme-color(m3-blue-theme.$light-theme, primary, 95);
+    background-color: mat.get-theme-color(m3-pale-blue-theme.$light-theme, primary, 90);
+    color: mat.get-theme-color(m3-pale-blue-theme.$light-theme, neutral, 10);
+    border-bottom-color: mat.get-theme-color(m3-pale-blue-theme.$light-theme, primary, 95);
   }
 
   .mat-sidenav-fixed {
-    border-color: mat.get-theme-color(m3-blue-theme.$light-theme, primary, 60);
+    border-color: mat.get-theme-color(m3-pale-blue-theme.$light-theme, primary, 60);
   }
 
   .mat-sidenav {
-    background-color: mat.get-theme-color(m3-blue-theme.$light-theme, primary, 95);
+    background-color: mat.get-theme-color(m3-pale-blue-theme.$light-theme, primary, 95);
   }
 
   .mat-button-toggle-checked {
-    background-color: mat.get-theme-color(m3-blue-theme.$light-theme, primary, 70);
+    background-color: mat.get-theme-color(m3-pale-blue-theme.$light-theme, primary, 70);
   }
 }
 
-#main-nav[theme="blue"][mode="dark"] {
+#main-nav[theme="pale-blue"][mode="dark"] {
   .mat-app-background {
-    background-color: mat.get-theme-color(m3-blue-theme.$dark-theme, neutral, 10);
-    color: mat.get-theme-color(m3-blue-theme.$dark-theme, neutral, 90);
+    background-color: mat.get-theme-color(m3-pale-blue-theme.$dark-theme, neutral, 10);
+    color: mat.get-theme-color(m3-pale-blue-theme.$dark-theme, neutral, 90);
   }
 
   .mat-toolbar {
-    background-color: mat.get-theme-color(m3-blue-theme.$dark-theme, primary, 90);
-    color: mat.get-theme-color(m3-blue-theme.$dark-theme, neutral, 10);
-    border-bottom-color: mat.get-theme-color(m3-blue-theme.$dark-theme, primary, 95);
+    background-color: mat.get-theme-color(m3-pale-blue-theme.$dark-theme, primary, 90);
+    color: mat.get-theme-color(m3-pale-blue-theme.$dark-theme, neutral, 10);
+    border-bottom-color: mat.get-theme-color(m3-pale-blue-theme.$dark-theme, primary, 95);
   }
 
   .mat-sidenav-fixed {
-    border-color: mat.get-theme-color(m3-blue-theme.$dark-theme, primary, 60);
+    border-color: mat.get-theme-color(m3-pale-blue-theme.$dark-theme, primary, 60);
   }
 
   .mat-sidenav {
-    background-color: mat.get-theme-color(m3-blue-theme.$dark-theme, primary, 95);
+    background-color: mat.get-theme-color(m3-pale-blue-theme.$dark-theme, primary, 95);
   }
 
   .mat-button-toggle-checked {
-    background-color: mat.get-theme-color(m3-blue-theme.$dark-theme, primary, 70);
+    background-color: mat.get-theme-color(m3-pale-blue-theme.$dark-theme, primary, 70);
   }
 }
 
-#main-nav[theme="green"][mode="light"] {
+#main-nav[theme="pale-green"][mode="light"] {
   .mat-app-background {
-    background-color: mat.get-theme-color(m3-green-theme.$light-theme, neutral, 96);
-    color: mat.get-theme-color(m3-green-theme.$light-theme, neutral, 10);
+    background-color: mat.get-theme-color(m3-pale-green-theme.$light-theme, neutral, 96);
+    color: mat.get-theme-color(m3-pale-green-theme.$light-theme, neutral, 10);
   }
 
   .mat-toolbar {
-    background-color: mat.get-theme-color(m3-green-theme.$light-theme, primary, 90);
-    color: mat.get-theme-color(m3-green-theme.$light-theme, neutral, 10);
-    border-bottom-color: mat.get-theme-color(m3-green-theme.$light-theme, primary, 95);
+    background-color: mat.get-theme-color(m3-pale-green-theme.$light-theme, primary, 90);
+    color: mat.get-theme-color(m3-pale-green-theme.$light-theme, neutral, 10);
+    border-bottom-color: mat.get-theme-color(m3-pale-green-theme.$light-theme, primary, 95);
   }
 
   .mat-sidenav-fixed {
-    border-color: mat.get-theme-color(m3-green-theme.$light-theme, primary, 60);
+    border-color: mat.get-theme-color(m3-pale-green-theme.$light-theme, primary, 60);
   }
 
   .mat-sidenav {
-    background-color: mat.get-theme-color(m3-green-theme.$light-theme, primary, 95);
+    background-color: mat.get-theme-color(m3-pale-green-theme.$light-theme, primary, 95);
   }
 
   .mat-button-toggle-checked {
-    background-color: mat.get-theme-color(m3-green-theme.$light-theme, primary, 70);
+    background-color: mat.get-theme-color(m3-pale-green-theme.$light-theme, primary, 70);
   }
 }
 
-#main-nav[theme="green"][mode="dark"] {
+#main-nav[theme="pale-green"][mode="dark"] {
   .mat-app-background {
-    background-color: mat.get-theme-color(m3-green-theme.$dark-theme, neutral, 10);
-    color: mat.get-theme-color(m3-green-theme.$dark-theme, neutral, 90);
+    background-color: mat.get-theme-color(m3-pale-green-theme.$dark-theme, neutral, 10);
+    color: mat.get-theme-color(m3-pale-green-theme.$dark-theme, neutral, 90);
   }
 
   .mat-toolbar {
-    background-color: mat.get-theme-color(m3-green-theme.$dark-theme, primary, 90);
-    color: mat.get-theme-color(m3-green-theme.$dark-theme, neutral, 10);
-    border-bottom-color: mat.get-theme-color(m3-green-theme.$dark-theme, primary, 95);
+    background-color: mat.get-theme-color(m3-pale-green-theme.$dark-theme, primary, 90);
+    color: mat.get-theme-color(m3-pale-green-theme.$dark-theme, neutral, 10);
+    border-bottom-color: mat.get-theme-color(m3-pale-green-theme.$dark-theme, primary, 95);
   }
 
   .mat-sidenav-fixed {
-    border-color: mat.get-theme-color(m3-green-theme.$dark-theme, primary, 60);
+    border-color: mat.get-theme-color(m3-pale-green-theme.$dark-theme, primary, 60);
   }
 
   .mat-sidenav {
-    background-color: mat.get-theme-color(m3-green-theme.$dark-theme, primary, 95);
+    background-color: mat.get-theme-color(m3-pale-green-theme.$dark-theme, primary, 95);
   }
 
   .mat-button-toggle-checked {
-    background-color: mat.get-theme-color(m3-green-theme.$dark-theme, primary, 70);
+    background-color: mat.get-theme-color(m3-pale-green-theme.$dark-theme, primary, 70);
   }
+}
+
+#them-item-green {
+  background-color: mat.get-theme-color(m3-pale-green-theme.$dark-theme, primary, 90);
+}
+
+#theme-item-blue {
+  background-color: mat.get-theme-color(m3-pale-blue-theme.$dark-theme, primary, 90);
 }
 
 .sidenav-container {

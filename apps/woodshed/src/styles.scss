@@ -1,14 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 
 @use '@angular/material' as mat;
-@use './styles/m3-blue-theme' as m3-blue-theme;
+@use 'styles/m3-pale-blue-theme' as m3-pale-blue-theme;
 
 @include mat.core();
 
 html{
-  @include mat.core-theme(m3-blue-theme.$light-theme);
-  @include mat.button-theme(m3-blue-theme.$light-theme);
+  @include mat.core-theme(m3-pale-blue-theme.$light-theme);
+  @include mat.button-theme(m3-pale-blue-theme.$light-theme);
 }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.material-symbols-large {
+  height: 24px;
+  width: 24px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 50,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+
+}

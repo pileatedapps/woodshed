@@ -1,10 +1,10 @@
-import { ChangeDetectorRef, Component, inject, OnDestroy } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { NgClass, NgForOf } from '@angular/common';
 import { MatSidenav, MatSidenavContainer, MatSidenavContent } from '@angular/material/sidenav';
 import { MatListItem, MatNavList } from '@angular/material/list';
-import { MatIcon } from '@angular/material/icon';
+import { MatIcon, MatIconRegistry } from '@angular/material/icon';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MediaMatcher } from '@angular/cdk/layout';
@@ -22,12 +22,14 @@ import { NavigationComponent } from './navigation/navigation.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent implements OnDestroy, OnInit {
   private _mobileQueryListener: () => void;
   mobileQuery: MediaQueryList;
+  matIconRegistry: MatIconRegistry = inject(MatIconRegistry);
   constructor() {
     const changeDetectorRef = inject(ChangeDetectorRef);
     const media = inject(MediaMatcher);
+
 
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -36,5 +38,10 @@ export class AppComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
+
+  ngOnInit(): void {
+    this.matIconRegistry.setDefaultFontSetClass(
+      'material-symbols-outlined')
   }
 }

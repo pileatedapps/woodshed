@@ -24,16 +24,20 @@
       <span>Woodshed</span>
       <span id="toolbar-spacer"></span>
       <span>
-        <button mat-raised-button [matMenuTriggerFor]="menu" matTooltip="Select a theme">
-          <mat-icon>palette</mat-icon>{{theme | uppercase}}
+        <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Select a theme">
+          <mat-icon>colors</mat-icon>
         </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item id="theme-item-blue" (click)="setTheme('blue')">Blue</button>
-            <button mat-menu-item id="them-item-green" (click)="setTheme('green')">Green</button>
+            <button mat-menu-item id="theme-item-blue" (click)="setTheme('pale-blue')">
+              <mat-icon>colors</mat-icon>Pale Blue
+            </button>
+            <button mat-menu-item id="them-item-green" (click)="setTheme('pale-green')">
+              <mat-icon>colors</mat-icon>Pale Green
+            </button>
           </mat-menu>
       </span>
       <span>
-        <mat-button-toggle-group name="fontStyle" aria-label="Toggle between Light and Dark Mode">
+        <mat-button-toggle-group name="modeStyle" aria-label="Toggle between Light and Dark Mode">
           <mat-button-toggle
             [checked]="mode === 'light'" (click)="setMode('light')" value="light" matTooltip="View in Light Mode">
             <mat-icon>light_mode</mat-icon>

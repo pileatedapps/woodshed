@@ -23,23 +23,23 @@ import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
-    MatIconModule,
     AsyncPipe,
     RouterOutlet,
+    MatIconModule,
     MatTooltip,
     MatButtonToggleGroup,
     MatButtonToggle,
     MatMenu,
     MatMenuTrigger,
     MatMenuItem,
-    UpperCasePipe
+    UpperCasePipe,
   ]
 })
 export class NavigationComponent {
   private breakpointObserver = inject(BreakpointObserver);
   private renderer: Renderer2 = inject(Renderer2);
   mode: 'light' | 'dark' = 'dark';
-  theme: 'blue' | 'green' = 'green';
+  theme: 'pale-blue' | 'pale-green' = 'pale-green';
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -51,7 +51,7 @@ export class NavigationComponent {
     this.mode = mode;
   }
 
-  setTheme(theme: 'blue' | 'green') {
+  setTheme(theme: 'pale-blue' | 'pale-green') {
     this.theme = theme;
   }
 }
