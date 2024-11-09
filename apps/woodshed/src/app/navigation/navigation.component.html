@@ -1,19 +1,20 @@
-<mat-sidenav-container id="main-nav" [attr.theme]="theme" [attr.mode]="mode" class="sidenav-container">
+<mat-sidenav-container id="main-nav" class="sidenav-container mat-app-background">
   <mat-sidenav #drawer class="sidenav" fixedInViewport id="main-sidenav"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+    <mat-nav-list id="main-nav-list">
+      <a mat-list-item href="#">Feature 1</a>
+      <a mat-list-item href="#">Feature 2</a>
+      <a mat-list-item href="#">Feature 3</a>
+      <a mat-list-item [activated]="isActivated('sample')" routerLink="['/samples']">Samples</a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content class="mat-app-background">
+  <mat-sidenav-content>
     <mat-toolbar color="primary" id="main-toolbar">
       @if (isHandset$ | async) {
-        <button color="primary"
+        <button
           type="button"
           aria-label="Toggle sidenav"
           mat-icon-button
@@ -31,8 +32,11 @@
             <button mat-menu-item id="theme-item-blue" (click)="setTheme('pale-blue')">
               <mat-icon>colors</mat-icon>Pale Blue
             </button>
-            <button mat-menu-item id="them-item-green" (click)="setTheme('pale-green')">
+            <button mat-menu-item id="theme-item-green" (click)="setTheme('pale-green')">
               <mat-icon>colors</mat-icon>Pale Green
+            </button>
+            <button mat-menu-item id="theme-item-red" (click)="setTheme('red')">
+              <mat-icon>colors</mat-icon>Red
             </button>
           </mat-menu>
       </span>
@@ -51,8 +55,9 @@
       </span>
     </mat-toolbar>
     <!-- Add Content Here -->
+
+    <mat-progress-bar *ngIf="isLoading" id="main-progress-bar" mode="indeterminate"></mat-progress-bar>
     <div id="main-content" class="mat-app-background">
-      <h2>Hello World</h2>
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
