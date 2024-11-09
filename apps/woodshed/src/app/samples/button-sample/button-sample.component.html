@@ -1,13 +1,27 @@
 <h2 class="mat-title-large">Sample Buttons</h2>
 <section>
   <div class="example-label">Basic</div>
-  <div class="example-button-row">
-    <button mat-button>Default</button>
-    <button mat-button class="button-primary">Primary</button>
-    <button mat-button class="button-accent">Accent</button>
-    <button mat-button class="button-warn">Danger</button>
-    <button mat-button disabled>Disabled</button>
-    <a mat-button href="https://www.google.com/" target="_blank">Link</a>
+  <div class="example-button-row example-flex-container">
+    <div>Do no use mat-button without the raised, stroked, etc options.
+      The only time I'll use mat-button without a style (mat-stroked-button, etc)
+      will be for links.
+    </div>
+    <span>
+      <a mat-button href="https://localhost:121212121/">"Buttonified" Link</a>
+    </span>
+    <span>
+      <a mat-button href="https://localhost:121212121/" disabled>Disabled Button Link</a>
+    </span>
+    <span>
+      <a href="https://localhost:121212121/">Non-visited Link</a>
+    </span>
+    <span>
+      <a href="https://localhost:121212121/" disabled>Disabled Link</a>
+    </span>
+    <span>
+      <a routerLink=".">Visited Link</a>
+    </span>
+
   </div>
 </section>
 <mat-divider></mat-divider>
@@ -19,7 +33,6 @@
     <button mat-raised-button class="button-secondary">Accent</button>
     <button mat-raised-button class="button-warn">Danger</button>
     <button mat-raised-button disabled>Disabled</button>
-    <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
   </div>
 </section>
 <mat-divider></mat-divider>
@@ -31,7 +44,6 @@
     <button mat mat-stroked-button class="button-accent">Accent</button>
     <button mat-stroked-button class="button-warn">Danger</button>
     <button mat-stroked-button disabled>Disabled</button>
-    <a mat-stroked-button href="https://www.google.com/" target="_blank">Link</a>
   </div>
 </section>
 <mat-divider></mat-divider>
@@ -43,7 +55,6 @@
     <button mat-flat-button class="button-accent">Accent</button>
     <button mat-flat-button class="button-warn">Danger</button>
     <button mat-flat-button disabled>Disabled</button>
-    <a mat-flat-button href="https://www.google.com/" target="_blank">Link</a>
   </div>
 </section>
 <mat-divider></mat-divider>

@@ -11,6 +11,7 @@ section {
 
 .example-button-row {
   display: table-cell;
+  max-width: 800px;
 }
 
 .example-button-row .mat-mdc-button-base {
@@ -21,6 +22,7 @@ section {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .example-button-container {
