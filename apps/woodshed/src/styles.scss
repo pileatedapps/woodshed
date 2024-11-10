@@ -64,7 +64,59 @@
     .mat-sidenav{
       border-right-color: mat.get-theme-color($theme, primary, 50);
     }
-  } @else {}
+  } @else {
+    .mat-toolbar {
+      background-color: mat.get-theme-color($theme, primary, 80);
+      color: mat.get-theme-color($theme, secondary, 10);
+      border-bottom-color: mat.get-theme-color($theme, primary, 50);
+
+      .mat-icon {
+        color: mat.get-theme-color($theme, secondary, 10);
+      }
+
+      .mat-button-toggle-checked {
+        color: mat.get-theme-color($theme, neutral, 10);
+        background-color: mat.get-theme-color($theme, primary, 70);
+      }
+
+      .mat-pseudo-checkbox {
+        --mat-minimal-pseudo-checkbox-selected-checkmark-color: mat.get-theme-color($theme, neutral, 10);
+      }
+    }
+
+    #main-sidenav {
+      .mat-toolbar {
+        background-color: mat.get-theme-color($theme, primary, 80);
+        color: mat.get-theme-color($theme, neutral, 10);
+        border-bottom-color: mat.get-theme-color($theme, primary, 50);
+
+        .mat-icon {
+          color: mat.get-theme-color($theme, neutral, 10);
+        }
+
+        .mat-button-toggle-checked {
+          color: mat.get-theme-color($theme, neutral, 10);
+          background-color: mat.get-theme-color($theme, primary, 70);
+        }
+
+        .mat-pseudo-checkbox {
+          --mat-minimal-pseudo-checkbox-selected-checkmark-color: #{mat.get-theme-color($theme, neutral, 10)};
+        }
+      }
+      #main-nav-list {
+        --mdc-list-list-item-label-text-color: #{mat.get-theme-color($theme, neutral, 10)};
+        --mat-list-active-indicator-color: #{mat.get-theme-color($theme, primary, 70)};
+        --mat-list-active-indicator-shape: none;
+      }
+
+
+      background-color: mat.get-theme-color($theme, primary, 80);
+    }
+
+    .mat-sidenav{
+      border-right-color: mat.get-theme-color($theme, primary, 50);
+    }
+  }
 
   #main-content {
     a {
@@ -82,7 +134,7 @@
     }
 
     button[disabled] {
-      background-color: mat.get-theme-color($theme, neutral, 30);
+      background-color: mat.get-theme-color($theme, neutral, 70);
       color: mat.get-theme-color($theme, neutral, 10);
       border-color: mat.get-theme-color($theme, neutral, 20);
     }
@@ -105,6 +157,15 @@
       background-color: mat.get-theme-color($theme, error, 40);
       color: mat.get-theme-color($theme, neutral, 90);
     }
+  }
+
+  .bordered-content {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: mat.get-theme-color($theme, neutral, 50);
+    margin: 15px;
+    padding: 15px;
   }
 }
 

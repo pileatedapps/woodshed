@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { NgClass, NgForOf } from '@angular/common';
 import { MatSidenav, MatSidenavContainer, MatSidenavContent } from '@angular/material/sidenav';
@@ -23,14 +23,13 @@ import { NavigationComponent } from './navigation/navigation.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnDestroy, OnInit {
+  title = `Joe's Woodshed`;
   private _mobileQueryListener: () => void;
   mobileQuery: MediaQueryList;
   matIconRegistry: MatIconRegistry = inject(MatIconRegistry);
   constructor() {
     const changeDetectorRef = inject(ChangeDetectorRef);
     const media = inject(MediaMatcher);
-
-
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -42,6 +41,6 @@ export class AppComponent implements OnDestroy, OnInit {
 
   ngOnInit(): void {
     this.matIconRegistry.setDefaultFontSetClass(
-      'material-symbols-outlined')
+      'material-symbols-outlined');
   }
 }
