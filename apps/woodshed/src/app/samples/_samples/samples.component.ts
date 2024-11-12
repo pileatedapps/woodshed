@@ -16,7 +16,7 @@ export class SamplesComponent implements OnInit {
   title = 'Samples';
 
   ngOnInit(): void {
-    this.title = this.route.snapshot.title!;
+    this.title = this.route.snapshot.title ? this.route.snapshot.title : 'Page Title';
     this.route.snapshot.children.forEach((snapshot: ActivatedRouteSnapshot) => this.createContentItem(snapshot));
   }
 

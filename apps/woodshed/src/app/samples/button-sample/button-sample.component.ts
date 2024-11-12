@@ -17,7 +17,7 @@ export class ButtonSampleComponent implements OnInit {
   private readonly route: ActivatedRoute = inject(ActivatedRoute);
 
   ngOnInit(): void {
-    this.title = this.route.snapshot.title!
+    this.title = this.route.snapshot.title ? this.route.snapshot.title : 'Page Title'
   }
 
 

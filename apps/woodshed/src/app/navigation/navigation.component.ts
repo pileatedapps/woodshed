@@ -7,15 +7,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { filter, map, shareReplay } from 'rxjs/operators';
-import {
-  ActivatedRoute,
-  Event,
-  NavigationEnd,
-  NavigationError,
-  NavigationStart, Route,
-  Router,
-  RouterOutlet
-} from '@angular/router';
+import { Event, NavigationEnd, NavigationError, NavigationStart, Router, RouterOutlet } from '@angular/router';
 import { MatTooltip } from '@angular/material/tooltip';
 import { MatButtonToggle, MatButtonToggleGroup } from '@angular/material/button-toggle';
 import { Observable, Subscription } from 'rxjs';
@@ -51,7 +43,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
   private readonly document: Document = inject(DOCUMENT);
   private readonly renderer: Renderer2 = inject(Renderer2);
   private readonly router: Router = inject(Router);
-  title: string = `Joe's Woodshed`;
+  title = `Joe's Woodshed`;
   mode: 'light' | 'dark' = 'light';
   theme: 'pale-blue' | 'pale-green' | 'red' = 'pale-green';
   isLoading = true;
