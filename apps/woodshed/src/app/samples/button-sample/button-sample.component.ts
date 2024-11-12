@@ -14,7 +14,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 })
 export class ButtonSampleComponent implements OnInit {
   title = 'Button Samples';
-  private route: ActivatedRoute = inject(ActivatedRoute);
+  private readonly route: ActivatedRoute = inject(ActivatedRoute);
 
   ngOnInit(): void {
     this.title = this.route.snapshot.title!

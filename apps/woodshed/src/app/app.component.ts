@@ -24,7 +24,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 })
 export class AppComponent implements OnDestroy, OnInit {
   title = `Joe's Woodshed`;
-  private _mobileQueryListener: () => void;
+  private readonly _mobileQueryListener: () => void;
   mobileQuery: MediaQueryList;
   matIconRegistry: MatIconRegistry = inject(MatIconRegistry);
   constructor() {

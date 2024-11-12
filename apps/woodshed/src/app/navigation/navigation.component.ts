@@ -39,10 +39,10 @@ import { MatProgressBar } from '@angular/material/progress-bar';
   ]
 })
 export class NavigationComponent implements OnInit, OnDestroy {
-  private breakpointObserver = inject(BreakpointObserver);
-  private document: Document = inject(DOCUMENT);
-  private renderer: Renderer2 = inject(Renderer2);
-  private router: Router = inject(Router);
+  private readonly breakpointObserver = inject(BreakpointObserver);
+  private readonly document: Document = inject(DOCUMENT);
+  private readonly renderer: Renderer2 = inject(Renderer2);
+  private readonly router: Router = inject(Router);
   mode: 'light' | 'dark' = 'light';
   theme: 'pale-blue' | 'pale-green' | 'red' = 'pale-green';
   isLoading = true;

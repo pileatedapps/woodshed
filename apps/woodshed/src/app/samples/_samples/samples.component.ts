@@ -11,7 +11,7 @@ import { MatList, MatListItem } from '@angular/material/list';
   styleUrl: './samples.component.scss',
 })
 export class SamplesComponent implements OnInit {
-  private route: ActivatedRoute = inject(ActivatedRoute);
+  private readonly route: ActivatedRoute = inject(ActivatedRoute);
   links: { title: string, path: string}[] = [];
   title = 'Samples';
 
