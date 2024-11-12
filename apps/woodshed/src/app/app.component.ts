@@ -7,8 +7,9 @@ import { MatListItem, MatNavList } from '@angular/material/list';
 import { MatIcon, MatIconRegistry } from '@angular/material/icon';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { MediaMatcher } from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints, BreakpointState, MediaMatcher } from '@angular/cdk/layout';
 import { NavigationComponent } from './navigation/navigation.component';
+import { filter } from 'rxjs/operators';
 
 @Component({
   standalone: true,
@@ -23,26 +24,44 @@ import { NavigationComponent } from './navigation/navigation.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnDestroy, OnInit {
+  readonly matIconRegistry: MatIconRegistry = inject(MatIconRegistry);
+  private readonly breakPoint$: BreakpointObserver = inject(BreakpointObserver);
+  private readonly media = inject(MediaMatcher);
   title = `Joe's Woodshed`;
-  private readonly _mobileQueryListener: () => void;
   mobileQuery: MediaQueryList;
-  matIconRegistry: MatIconRegistry = inject(MatIconRegistry);
+
   constructor() {
-    const changeDetectorRef = inject(ChangeDetectorRef);
-    const media = inject(MediaMatcher);
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addEventListener('change', this._mobileQueryListener);
+    this.mobileQuery = this.media.matchMedia('(max-width: 600px)');
   }
 
   ngOnDestroy(): void {
-    this.mobileQuery.removeEventListener('change', this._mobileQueryListener);
+    this.breakPoint$.ngOnDestroy();
   }
 
   ngOnInit(): void {
     this.matIconRegistry.setDefaultFontSetClass(
       'material-symbols-outlined');
+
+    this.breakPoint$.observe([
+      Breakpoints.XLarge,
+      Breakpoints.Large,
+      Breakpoints.Medium,
+      Breakpoints.Small,
+      Breakpoints.XSmall,
+      Breakpoints.Handset,
+      Breakpoints.HandsetPortrait,
+      Breakpoints.HandsetLandscape,
+      Breakpoints.Web,
+      Breakpoints.WebPortrait,
+      Breakpoints.WebLandscape,
+      Breakpoints.Tablet,
+      Breakpoints.TabletPortrait,
+      Breakpoints.TabletLandscape
+    ]).pipe(
+      filter((breakPoint: BreakpointState) => breakPoint.matches)
+    )
+      .subscribe((breakPoint: BreakpointState) => {
+      console.log(breakPoint);
+    })
   }
-
-
 }
