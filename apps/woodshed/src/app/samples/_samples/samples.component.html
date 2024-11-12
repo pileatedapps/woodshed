@@ -1,0 +1,15 @@
+<h2 class="mat-title-large">{{title}}</h2>
+<div id="samples-toc">
+  <div>
+    <h4 class="mat-title-medium">Table of Contents</h4>
+    <ol>
+      <li *ngFor="let link of links ">
+        <a [routerLink]="link.path">{{link.title}}</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+<div class="bordered-content">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,55 @@
+
+@use '@angular/material' as mat;
+@use '../../styles/m3-pale-blue-theme' as m3-pale-blue-theme;
+@use '../../styles/m3-pale-green-theme' as m3-pale-green-theme;
+@use '../../styles/m3-red-theme' as m3-red-theme;
+
+
+#theme-item-green {
+  background-color: mat.get-theme-color(m3-pale-green-theme.$dark-theme, primary, 90);
+}
+
+#theme-item-blue {
+  background-color: mat.get-theme-color(m3-pale-blue-theme.$dark-theme, primary, 90);
+}
+
+#theme-item-red {
+  background-color: mat.get-theme-color(m3-red-theme.$dark-theme, primary, 90);
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.mat-toolbar {
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+}
+
+.mat-sidenav-fixed {
+  border-radius: unset;
+}
+
+#toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+#main-content {
+  overflow: auto;
+  padding-left: 15px;
+  padding-top: 15px;
+}
