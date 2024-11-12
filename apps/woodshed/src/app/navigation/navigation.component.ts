@@ -6,14 +6,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-import { delay, filter, map, shareReplay } from 'rxjs/operators';
-import { NavigationEnd, NavigationError, NavigationStart, Router, RouterOutlet } from '@angular/router';
+import { filter, map, shareReplay } from 'rxjs/operators';
+import { Event, NavigationEnd, NavigationError, NavigationStart, Router, RouterOutlet } from '@angular/router';
 import { MatTooltip } from '@angular/material/tooltip';
 import { MatButtonToggle, MatButtonToggleGroup } from '@angular/material/button-toggle';
 import { Observable, Subscription } from 'rxjs';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatProgressBar } from '@angular/material/progress-bar';
-import { Event } from  '@angular/router'
 
 @Component({
   selector: 'app-navigation',
