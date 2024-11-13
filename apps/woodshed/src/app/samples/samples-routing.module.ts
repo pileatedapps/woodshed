@@ -9,6 +9,11 @@ const routes: Routes = [
     component: SamplesComponent,
     children: [
       {
+        path: '',
+        redirectTo: 'button',
+        pathMatch: 'full'
+      },
+      {
         path: 'button',
         title: 'Button Samples',
         loadComponent: () => import('./button-sample/button-sample.component').then(c => c.ButtonSampleComponent)
