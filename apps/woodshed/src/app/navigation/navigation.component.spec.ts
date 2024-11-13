@@ -23,7 +23,8 @@ describe('NavigationComponent', () => {
 
     document = TestBed.inject(DOCUMENT)
     router = TestBed.inject(Router);
-  }));
+  })
+
 
   beforeEach(() => {
     fixture = TestBed.createComponent(NavigationComponent);
@@ -34,7 +35,7 @@ describe('NavigationComponent', () => {
   it('should compile', () => {
     expect(component).toBeTruthy();
   });
-
+  
   it('setTheme sets the theme', () => {
     component.setTheme('red');
     expect(document.documentElement.getAttribute('theme')).toEqual('red');
@@ -48,8 +49,6 @@ describe('NavigationComponent', () => {
   it('sets isLoading and activeUrl when navigation ends', async () => {
     await router.navigate(['samples'])
     expect(component.isLoading).toEqual(false);
-    expect(component.activeUrl).toEqual('/samples')
-
-
+    expect(component.activeUrl).toEqual('/samples');
   })
 });
