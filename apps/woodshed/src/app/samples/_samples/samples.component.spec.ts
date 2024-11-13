@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SamplesComponent } from './samples.component';
 import { ActivatedRoute, provideRouter, Router } from '@angular/router';
 import { appRoutes } from '../../app.routes';
-import { provideRouter } from '@angular/router';
 
 describe('SamplesComponent', () => {
   let component: SamplesComponent;

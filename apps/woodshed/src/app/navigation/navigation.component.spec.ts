@@ -21,9 +21,9 @@ describe('NavigationComponent', () => {
       ]
     }).compileComponents();
 
-    document = TestBed.inject(DOCUMENT)
+    document = TestBed.inject(DOCUMENT);
     router = TestBed.inject(Router);
-  })
+  }));
 
 
   beforeEach(() => {
@@ -35,7 +35,7 @@ describe('NavigationComponent', () => {
   it('should compile', () => {
     expect(component).toBeTruthy();
   });
-  
+
   it('setTheme sets the theme', () => {
     component.setTheme('red');
     expect(document.documentElement.getAttribute('theme')).toEqual('red');
