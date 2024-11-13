@@ -20,7 +20,7 @@ export class SamplesComponent implements OnInit {
     this.route.snapshot.children.forEach((snapshot: ActivatedRouteSnapshot) => this.createContentItem(snapshot));
   }
 
-  createContentItem(snapshot: ActivatedRouteSnapshot) {
+  private createContentItem(snapshot: ActivatedRouteSnapshot) {
     if (snapshot.title && (snapshot.routeConfig?.path && !snapshot.routeConfig.path.includes(':'))) {
       this.links.push({ title: snapshot.title, path: snapshot.routeConfig.path})
     }

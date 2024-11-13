@@ -37,8 +37,8 @@
       "options": {
         "passWithNoTests": true,
         "codeCoverage": true,
-        "coverageReporters": ["html", "text-summary"],
-        "coverageDirectory": "{workspaceRoot}/.jest/coverage",
+        "coverageReporters": ["html", "text-summary", "lcov"],
+        "coverageDirectory": "{workspaceRoot}/dist/.jest/coverage"
       },
       "configurations": {
         "ci": {
