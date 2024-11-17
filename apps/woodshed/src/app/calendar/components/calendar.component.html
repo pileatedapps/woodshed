@@ -1,14 +1,25 @@
 <div class="calendar-container">
   <mat-toolbar class="calendar-toolbar">
-    <button mat-icon-button [matTooltip]="'Goto Previous Month'" (click)="incrementMonth(-1)">
+    <button mat-raised-button class="button-secondary" [matTooltip]="'Goto Previous Month'" (click)="incrementMonth(-1)">
       <mat-icon>chevron_left</mat-icon>
+      <span>
+        {{ adjustMonth(selectedDateModel(), -1) | date: 'MMM YYYY'}}
+      </span>
     </button>
-    <h2 class="mat-title-large">{{selectedDateModel() | date: 'MMMM YYYY'}}</h2>
-    <button mat-icon-button [matTooltip]="'Go to any date'" (click)="openDialog()">
-      <mat-icon>calendar_today</mat-icon>
-    </button>
-    <button mat-icon-button [matTooltip]="'Go to Next Month'" (click)="incrementMonth(1)">
-      <mat-icon>chevron_right</mat-icon>
+    <div>
+      <h2 class="mat-title-large">{{selectedDateModel() | date: 'MMMM YYYY'}}
+        <span>
+          <button mat-icon-button [matTooltip]="'Go to any date'" (click)="openDialog()">
+            <mat-icon>calendar_today</mat-icon>
+          </button>
+        </span>
+      </h2>
+    </div>
+
+
+    <button mat-raised-button class="button-secondary" [matTooltip]="'Go to Next Month'" (click)="incrementMonth(1)">
+      {{ adjustMonth(selectedDateModel(), 1) | date: 'MMM YYYY'}}
+      <mat-icon iconPositionEnd>chevron_right</mat-icon>
     </button>
   </mat-toolbar>
   <div class="calendar-month">

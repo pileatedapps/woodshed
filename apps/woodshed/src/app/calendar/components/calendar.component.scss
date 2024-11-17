@@ -3,13 +3,13 @@
 .current-month {}
 
 .calendar-container {
-  height: 100vh;
+  height: 100%;
   padding: 5px;
 }
 
 .calendar-toolbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 
 }
 

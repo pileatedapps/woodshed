@@ -56,6 +56,13 @@ export class CalendarComponent implements OnInit {
     })
   }
 
+  adjustMonth(date: Date, increment: number): Date {
+    const newDate = new Date(date);
+    newDate.setHours(0,0,0,0);
+    newDate.setMonth(newDate.getMonth() + increment)
+    return newDate;
+  }
+
   private adjustDates(date: Date, increment: number): Date {
     const newDate = new Date(date);
     newDate.setHours(0,0,0,0);
@@ -92,4 +99,6 @@ export class CalendarComponent implements OnInit {
     newDate.setMonth(this.selectedDateModel().getMonth() + increment);
     this.selectedDateModel.set(newDate);
   }
+
+  protected readonly Date = Date;
 }
