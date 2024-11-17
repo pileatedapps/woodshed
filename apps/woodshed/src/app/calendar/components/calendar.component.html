@@ -1,0 +1,33 @@
+<div class="calendar-container">
+  <mat-toolbar class="calendar-toolbar">
+    <button mat-icon-button [matTooltip]="'Goto Previous Month'" (click)="incrementMonth(-1)">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <h2 class="mat-title-large">{{selectedDateModel() | date: 'MMMM YYYY'}}</h2>
+    <button mat-icon-button [matTooltip]="'Go to any date'" (click)="openDialog()">
+      <mat-icon>calendar_today</mat-icon>
+    </button>
+    <button mat-icon-button [matTooltip]="'Go to Next Month'" (click)="incrementMonth(1)">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </mat-toolbar>
+  <div class="calendar-month">
+    <div class="grid-item"
+         [ngClass]="{
+          'calendar-current': dates[i].getMonth() === selectedDateModel().getMonth(),
+          'date-today': dates[i].getTime() === currentDate.getTime()
+          }" *ngFor="let cell of cells; let i = index">
+      <div class="calendar-weekday-label mat-title-small" *ngIf="i / 7 < 1">
+        {{dates[i] | date: 'E'}}
+      </div>
+      <div class="calendar-date-header">
+        <span class="calendar-month-label" *ngIf="dates[i].getDate() === 1">
+          {{dates[i] | date: 'MMM'}}
+        </span>
+        <span>{{dates[i] | date: 'dd'}}</span>
+
+      </div>
+      <div></div>
+    </div>
+  </div>
+</div>

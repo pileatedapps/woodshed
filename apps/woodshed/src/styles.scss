@@ -119,6 +119,8 @@
   }
 
   #main-content {
+    position: relative;
+    height: 100%;
     a {
       text-decoration: underline;
       color: mat.get-theme-color($theme, primary, 80);
@@ -167,6 +169,19 @@
     margin: 15px;
     padding: 15px;
   }
+
+  .grid-item:not(.calendar-current) {
+    background-color: mat.get-theme-color($theme, neutral, 80);
+  }
+
+  .grid-item.date-today {
+    background-color: mat.get-theme-color($theme, primary, 70);
+  }
+
+  .grid-item.date-selected {
+    background-color: mat.get-theme-color($theme, tertiary, 40);
+  }
+
 }
 
 html, body { height: 100%; }

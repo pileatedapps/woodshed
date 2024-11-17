@@ -1,0 +1,47 @@
+@use '@angular/material' as mat;
+
+.current-month {}
+
+.calendar-container {
+  height: 100vh;
+  padding: 5px;
+}
+
+.calendar-toolbar {
+  display: flex;
+  justify-content: center;
+
+}
+
+.calendar-month {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);  /* Create 7 equal-width columns */
+  grid-template-rows: repeat(5, 1fr);     /* Create 5 equal-height rows */
+  height: 100%;  /* Make the grid take up the full viewport height */
+  width: 100%;   /* Make the grid take up the full viewport width */
+}
+
+
+.grid-item {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #ccc;  /* Add border to distinguish items */
+}
+
+.calendar-row {
+  display: flex;
+  flex-direction: row;
+  flex: auto;
+  align-items: stretch;
+  justify-content: space-evenly;
+}
+
+.calendar-grid-item {
+  display: flex;
+  justify-content: space-evenly;
+  border-style: solid;
+  border-width: 1px;
+  margin: 2px;
+}

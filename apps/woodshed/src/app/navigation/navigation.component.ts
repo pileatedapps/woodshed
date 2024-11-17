@@ -7,7 +7,15 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { filter, map, shareReplay } from 'rxjs/operators';
-import { Event, NavigationEnd, NavigationError, NavigationStart, Router, RouterOutlet } from '@angular/router';
+import {
+  Event,
+  NavigationEnd,
+  NavigationError,
+  NavigationStart,
+  Router,
+  RouterLink, RouterLinkActive,
+  RouterOutlet
+} from '@angular/router';
 import { MatTooltip } from '@angular/material/tooltip';
 import { MatButtonToggle, MatButtonToggleGroup } from '@angular/material/button-toggle';
 import { Observable, Subscription } from 'rxjs';
@@ -26,6 +34,8 @@ import { MatProgressBar } from '@angular/material/progress-bar';
     MatListModule,
     AsyncPipe,
     RouterOutlet,
+    RouterLink,
+    RouterLinkActive,
     MatIconModule,
     MatTooltip,
     MatButtonToggleGroup,

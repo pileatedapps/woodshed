@@ -8,7 +8,12 @@ export const appRoutes: Route[] = [
   },
   {
     path: 'samples',
-    loadChildren: () => import('./samples/samples.module').then(m => m.SamplesModule),
+    loadChildren: () => import('./samples/samples.module').then(m => m.SamplesModule)
+  },
+  {
+    path: 'calendar',
+    title: 'Calendar',
+    loadComponent: () => import('./calendar/components/calendar.component').then(c => c.CalendarComponent),
   },
   {
     path: '**',

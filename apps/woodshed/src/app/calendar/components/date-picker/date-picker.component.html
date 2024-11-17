@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Date Picker</h2>
+<mat-dialog-content>
+  <p class="mat-body-strong">Current Selection:  {{data.selectedDate | date: 'dd MMMM YYYY' }}</p>
+  <mat-form-field>
+    <mat-label>Select new date</mat-label>
+    <input matInput [(ngModel)]="selectedDateSignal" [matDatepicker]="picker" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button class="button-primary" [mat-dialog-close]="selectedDateSignal()" cdkFocusInitial>Ok</button>
+  <button mat-raised-button class="button-secondary" (click)="onNoClick()">Cancel</button>
+</mat-dialog-actions>
