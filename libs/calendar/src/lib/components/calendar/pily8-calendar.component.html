@@ -7,12 +7,8 @@
       </span>
     </button>
     <div>
-      <h2 class="mat-title-large">{{selectedDateModel() | date: 'MMMM YYYY'}}
-        <span>
-          <button mat-icon-button [matTooltip]="'Go to any date'" (click)="openDialog()">
-            <mat-icon>calendar_today</mat-icon>
-          </button>
-        </span>
+      <h2 class="mat-title-large">
+        {{selectedDateModel() | date: 'MMMM YYYY'}}
       </h2>
     </div>
 

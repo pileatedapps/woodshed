@@ -1,4 +1,4 @@
-import { Component, inject, Input, model, ModelSignal, OnInit, signal } from '@angular/core';
+import { Component, inject, Input, model, ModelSignal, OnDestroy, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
 import { MatList, MatListItem } from '@angular/material/list';
@@ -18,10 +18,11 @@ import {
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import { DatePickerComponent, DatePickerDialogDate } from './date-picker/date-picker.component';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-calendar',
+  selector: 'pily8-cal-calendar',
   standalone: true,
   imports: [CommonModule,
     MatCard, MatCardHeader, MatCardTitle, MatCardContent,
@@ -35,25 +36,32 @@ import { DatePickerComponent, DatePickerDialogDate } from './date-picker/date-pi
   providers: [
     provideNativeDateAdapter()
   ],
-  templateUrl: './calendar.component.html',
-  styleUrl: './calendar.component.scss',
+  templateUrl: './pily8-calendar.component.html',
+  styleUrl: './pily8-calendar.component.scss',
 })
-export class CalendarComponent implements OnInit {
+export class Pily8CalendarComponent implements OnInit, OnDestroy {
   cells: number[] = [...Array(35)];
   dates: Date[] = [];
   currentDate: Date = new Date();
   date: number = new Date().getDate();
   readonly selectedDateModel: ModelSignal<Date> = model(new Date());
   readonly dialog: MatDialog = inject(MatDialog);
+  readonly route: ActivatedRoute = inject(ActivatedRoute);
+  readonly router: Router = inject(Router);
+  private paramMap$!: Subscription;
 
   ngOnInit(): void {
     this.currentDate = new Date();
     this.currentDate.setHours(0,0,0,0);
-    this.selectedDateModel.set(this.currentDate);
+    this.setDateFromRoute(this.route.snapshot.paramMap);
     this.createCalendar();
-    this.selectedDateModel.subscribe((selectedDate: Date) => {
+    this.paramMap$ = this.route.paramMap.subscribe((paramMap: ParamMap) => {
       this.createCalendar();
     })
+  }
+
+  ngOnDestroy(): void {
+    this.paramMap$?.unsubscribe();
   }
 
   adjustMonth(date: Date, increment: number): Date {
@@ -61,6 +69,19 @@ export class CalendarComponent implements OnInit {
     newDate.setHours(0,0,0,0);
     newDate.setMonth(newDate.getMonth() + increment)
     return newDate;
+  }
+
+  private setDateFromRoute(paramMap: ParamMap) {
+    const pMonth: string | null = paramMap.get('month');
+    const pYear: string | null = paramMap.get('year');
+    const pDate: string | null = paramMap.get('date');
+    const date: Date = new Date(Number(pYear), Number(pMonth) - 1 , Number(pDate), 0, 0, 0, 0);
+    if (isNaN(date.getTime())) {
+      this.selectedDateModel.set(this.currentDate);
+      return;
+    }
+
+    this.selectedDateModel.set(date);
   }
 
   private adjustDates(date: Date, increment: number): Date {
@@ -81,24 +102,11 @@ export class CalendarComponent implements OnInit {
     })
   }
 
-  openDialog(): void {
-    const dialogRef: MatDialogRef<DatePickerComponent> = this.dialog.open(DatePickerComponent, {
-      data: { selectedDate: this.selectedDateModel() },
-    });
-
-    dialogRef.afterClosed().subscribe((result: Date) => {
-      if (result !== undefined) {
-        this.selectedDateModel.set(result);
-      }
-    });
-  }
-
-  incrementMonth(increment: number) {
+  async incrementMonth(increment: number) {
     const newDate: Date = new Date()
     newDate.setHours(0,0,0,0);
     newDate.setMonth(this.selectedDateModel().getMonth() + increment);
     this.selectedDateModel.set(newDate);
+    await this.router.navigate(['/calendar/month', newDate.getFullYear(), newDate.getMonth() + 1, 1])
   }
-
-  protected readonly Date = Date;
 }
