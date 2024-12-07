@@ -171,7 +171,7 @@
   }
 
   .grid-item:not(.calendar-current) {
-    background-color: mat.get-theme-color($theme, neutral, 80);
+    background-color: mat.get-theme-color($theme, neutral, 60);
   }
 
   .grid-item.date-today {

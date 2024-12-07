@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Pily8CalendarComponent } from './pily8-calendar.component';
+import { Pily8CalendarMonthComponent } from './pily8-calendar-month.component';
 
 describe('CalendarComponent', () => {
-  let component: Pily8CalendarComponent;
-  let fixture: ComponentFixture<Pily8CalendarComponent>;
+  let component: Pily8CalendarMonthComponent;
+  let fixture: ComponentFixture<Pily8CalendarMonthComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Pily8CalendarComponent],
+      imports: [Pily8CalendarMonthComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Pily8CalendarComponent);
+    fixture = TestBed.createComponent(Pily8CalendarMonthComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

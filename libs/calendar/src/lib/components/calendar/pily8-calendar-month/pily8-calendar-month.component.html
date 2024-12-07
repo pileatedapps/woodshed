@@ -1,0 +1,22 @@
+<div class="calendar-month">
+  <div class="grid-item"
+       [ngClass]="{
+          'calendar-current': calCell.getMonth() === selectedDate.getMonth(),
+          'date-today': calCell.toDateString() === currentDate.toDateString()
+          }" *ngFor="let calCell of cells; let i = index">
+    <!-- Display the days of the week in the first row -->
+    <div class="calendar-weekday-label mat-title-small" *ngIf="i / 7 < 1">
+      {{calCell | date: 'E'}}
+    </div>
+    <div class="calendar-date-header">
+      <!-- Display the name of the month on the first day of the month -->
+      <span class="calendar-month-label" *ngIf="calCell.getDate() === 1">
+          {{calCell | date: 'MMM'}}
+        </span>
+      <span>{{calCell | date: 'dd'}}</span>
+    </div>
+    <div class="calendar-events">
+
+    </div>
+  </div>
+</div>

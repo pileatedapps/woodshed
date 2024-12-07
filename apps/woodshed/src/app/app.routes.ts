@@ -1,12 +1,6 @@
 import { Route } from '@angular/router';
 
-const calendarPathRoute: Route = {
-  path: 'calendar',
-  title: 'Calendar',
-  loadComponent: () => import('./calendar/components/calendar/calendar.component').then(c => c.CalendarComponent),
-  runGuardsAndResolvers: 'always'
-}
-
+const currentDate: Date = new Date();
 export const appRoutes: Route[] = [
   {
     path: '',
@@ -18,11 +12,25 @@ export const appRoutes: Route[] = [
     loadChildren: () => import('./samples/samples.module').then(m => m.SamplesModule)
   },
   {
-    ...calendarPathRoute,
-  },
-  {
-    ...calendarPathRoute,
-    path: 'calendar/month/:year/:month/:date',
+    path: 'calendar',
+    children: [
+      {
+        path: '',
+        redirectTo: `month/${currentDate.getFullYear()}/${currentDate.getMonth() + 1}/${currentDate.getDate()}`,
+        pathMatch: 'full'
+      },
+      {
+        path: 'month/:year/:month/:date',
+        loadComponent: () => import('./calendar/calendar.component')
+          .then(c => c.CalendarComponent),
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('@pily8/calendar').then(c => c.Pily8CalendarMonthComponent)
+          }
+        ]
+      }
+    ]
   },
   {
     path: '**',
