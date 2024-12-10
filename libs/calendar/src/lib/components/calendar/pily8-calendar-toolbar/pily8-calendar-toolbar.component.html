@@ -3,10 +3,10 @@
     <button mat-icon-button (click)="navigateToDate()">
       <mat-icon>calendar_today</mat-icon>
     </button>
-    <button mat-icon-button>
+    <button mat-icon-button (click)="navigateToDate(selectedDate, 'week')">
       <mat-icon>view_week</mat-icon>
     </button>
-    <button mat-icon-button>
+    <button mat-icon-button (click)="navigateToDate(selectedDate, 'month')">
       <mat-icon>calendar_view_month</mat-icon>
     </button>
   </div>
@@ -36,4 +36,3 @@
 
   </div>
 </mat-toolbar>
-<router-outlet></router-outlet>

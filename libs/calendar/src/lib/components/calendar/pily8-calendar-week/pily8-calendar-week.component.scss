@@ -1,0 +1,47 @@
+@use '../../../../../../../node_modules/@angular/material/index' as mat;
+
+.calendar-week {
+  display: grid;
+  grid-template-columns: 3em repeat(7, 1fr);
+  grid-template-rows: repeat(27, 1fr);
+  justify-content: space-evenly;
+  height: 100%;  /* Make the grid take up the full viewport height */
+  width: 100%;   /* Make the grid take up the full viewport width */
+
+  .grid-item {
+    border-bottom: 1px dashed #ccc;  /* Add border to distinguish items */
+    border-right: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex: 1;
+
+    .calendar-headers {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+      flex: 1;
+      padding-top: 10px;
+    }
+
+    .calendar-times {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+    }
+  }
+
+  .time-container {
+    font-size: x-small;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    .time-label {
+      position: relative;
+      bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+}

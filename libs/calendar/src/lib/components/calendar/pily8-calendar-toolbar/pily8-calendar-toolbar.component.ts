@@ -9,6 +9,8 @@ import { ActivatedRoute, ParamMap, Router, RouterOutlet } from '@angular/router'
 import { Subscription } from 'rxjs';
 import { Pily8CalendarService } from '../../../service/pily8-calendar.service';
 
+export type CalType = 'month' | 'week' | 'agenda';
+
 @Component({
   selector: 'pily8-cal-calendar-toolbar',
   standalone: true,
@@ -50,10 +52,10 @@ export class Pily8CalendarToolbarComponent implements OnInit, OnDestroy {
     return newDate;
   }
 
-  async navigateToDate(newDate: Date = new Date()) {
+  async navigateToDate(newDate: Date = new Date(), type: CalType = 'month') {
     await this.router.navigate([
       '/calendar',
-      'month',
+      type,
       newDate.getFullYear(),
       newDate.getMonth() + 1,
       newDate.getDate()

@@ -29,6 +29,17 @@ export const appRoutes: Route[] = [
             loadComponent: () => import('@pily8/calendar').then(c => c.Pily8CalendarMonthComponent)
           }
         ]
+      },
+      {
+        path: 'week/:year/:month/:date',
+        loadComponent: () => import('./calendar/calendar.component')
+          .then(c => c.CalendarComponent),
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('@pily8/calendar').then(c => c.Pily8CaledarWeekComponent)
+          }
+        ]
       }
     ]
   },
