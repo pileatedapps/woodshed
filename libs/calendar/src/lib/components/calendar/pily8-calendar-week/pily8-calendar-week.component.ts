@@ -15,8 +15,8 @@ import { MatIconButton, MatMiniFabButton } from '@angular/material/button';
 export class Pily8CaledarWeekComponent implements OnInit, OnDestroy {
   private readonly route: ActivatedRoute = inject(ActivatedRoute);
   private readonly calendarService: Pily8CalendarService = inject(Pily8CalendarService);
-  protected readonly currentDate = new Date(new Date().setHours(0,0,0,0));
-  protected selectedDate: Date = this.currentDate;
+  protected readonly currentDate = new Date();
+  protected selectedDate: Date = new Date();
   private routeParam$!: Subscription;
   protected maxDays = 7;
 

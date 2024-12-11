@@ -1,6 +1,10 @@
 <div class="calendar-week">
-  <div class="grid-item time-label calendar-current"></div>
+  <div class="grid-item time-container calendar-current">
+    <!-- Empty cell -->
+  </div>
+  <div class="grid-item spacer calendar-current"></div>
   <ng-container *ngFor="let header of headerCells; let i = index">
+    <!-- Add the headers cells -->
     <div class="grid-item" [ngClass]="{
           'calendar-current': header.getMonth() === selectedDate.getMonth()
           }">
@@ -12,16 +16,38 @@
       </div>
     </div>
   </ng-container>
+  <div class="grid-item time-container calendar-current">
+    <div class="time-label">
+      ({{ headerCells[0] | date: 'z' }})
+    </div>
+  </div>
+  <div class="grid-item spacer calendar-current"></div>
+  <ng-container *ngFor="let header of headerCells; let i = index">
+    <!-- Add the all day event cells -->
+    <div class="grid-item" [ngClass]="{
+          'calendar-current': header.getMonth() === selectedDate.getMonth()
+          }">
+      <div class="all-day">
+        <!-- All day events go here somehow -->
+      </div>
+    </div>
+  </ng-container>
   <ng-container *ngFor="let calCell of cells; let i = index">
+    <!-- Add the all time based cells -->
     <div class="grid-item calendar-current time-container" *ngIf="i % 7 === 0">
       <div class="time-label">
         {{calCell | date: 'hh a'}}
       </div>
     </div>
+    <div class="grid-item calendar-current spacer" *ngIf="i % 7 === 0"></div>
     <div class="grid-item" [ngClass]="{
           'calendar-current': calCell.getMonth() === selectedDate.getMonth()
           }">
-      <div class="calendar-times" >
+      <div class="current-time" [attr.style]="'top: ' + (currentDate.getMinutes() / 60) * 100 + '%'"
+           *ngIf="
+          calCell.toDateString() === currentDate.toDateString() &&
+          calCell.getHours() === currentDate.getHours()">
+          <div class="dot"></div>
       </div>
     </div>
   </ng-container>

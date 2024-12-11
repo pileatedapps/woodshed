@@ -2,11 +2,12 @@
 
 .calendar-week {
   display: grid;
-  grid-template-columns: 3em repeat(7, 1fr);
-  grid-template-rows: repeat(27, 1fr);
+  grid-template-columns: 3em 1em repeat(7, 1fr); //time, spacer, 7 days
+  grid-template-rows: repeat(26, 100px); //header, all day events, 24 hours
   justify-content: space-evenly;
   height: 100%;  /* Make the grid take up the full viewport height */
   width: 100%;   /* Make the grid take up the full viewport width */
+  overflow: auto;
 
   .grid-item {
     border-bottom: 1px dashed #ccc;  /* Add border to distinguish items */
@@ -15,6 +16,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     flex: 1;
+    position: relative;
 
     .calendar-headers {
       display: flex;
@@ -26,22 +28,42 @@
     }
 
     .calendar-times {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      flex: 1;
+      display: block;
     }
   }
 
   .time-container {
+    display: block;
     font-size: x-small;
-    padding-bottom: 0;
-    margin-bottom: 0;
+    border: 0;
+    position: relative;
+    margin: 0;
+    padding: 0;
     .time-label {
-      position: relative;
-      bottom: 0;
-      padding-bottom: 0;
+      display: block;
+      position: absolute;
+      right: 3px;
+      top: -12px;
+    }
+  }
+  .current-time {
+    display: block;
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    height: 2px;
+    background-color: red;
+    top: 0px;
+    .dot {
+      display: inline-block;
+      height: 10px;
+      width: 10px;
+      background-color: red;
+      border-radius: 50%;
+      display: inline-block;
+      position: absolute;
+      top: -4px;
+      left: -5px;
     }
   }
 }
