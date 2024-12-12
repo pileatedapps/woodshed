@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './loading-bar.component.html',
-  styleUrl: './loading-bar.component.scss',
+  styleUrl: './loading-bar.component.scss'
 })
-export class LoadingBarComponent {}
+export class LoadingBarComponent {
+}

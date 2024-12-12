@@ -1,12 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 
 import { Pily8CalendarService } from './pily8-calendar.service';
+import { provideRouter } from '@angular/router';
 
 describe('CalendarService', () => {
   let service: Pily8CalendarService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [
+        provideRouter([])
+      ]
+    });
     service = TestBed.inject(Pily8CalendarService);
   });
 

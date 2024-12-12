@@ -6,13 +6,13 @@ import { expect } from '@storybook/jest';
 
 const meta: Meta<BorderedContentComponent> = {
   component: BorderedContentComponent,
-  title: 'BorderedContentComponent',
+  title: 'BorderedContentComponent'
 };
 export default meta;
 type Story = StoryObj<BorderedContentComponent>;
 
 export const Primary: Story = {
-  args: {},
+  args: {}
 };
 
 export const Heading: Story = {
@@ -20,5 +20,5 @@ export const Heading: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     expect(canvas.getByText(/bordered-content works!/gi)).toBeTruthy();
-  },
+  }
 };

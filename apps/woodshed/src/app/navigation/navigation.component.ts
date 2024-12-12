@@ -13,7 +13,8 @@ import {
   NavigationError,
   NavigationStart,
   Router,
-  RouterLink, RouterLinkActive,
+  RouterLink,
+  RouterLinkActive,
   RouterOutlet
 } from '@angular/router';
 import { MatTooltip } from '@angular/material/tooltip';
@@ -80,17 +81,17 @@ export class NavigationComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.router$ = this.router.events.pipe(
       filter((routerEvent: Event) => {
-        return routerEvent instanceof NavigationStart
-          || routerEvent instanceof NavigationEnd
-          || routerEvent instanceof NavigationError
+          return routerEvent instanceof NavigationStart
+            || routerEvent instanceof NavigationEnd
+            || routerEvent instanceof NavigationError;
         }
-      ),
-      ).subscribe((routerEvent: Event) => {
-        if (routerEvent instanceof NavigationEnd) {
-          const navEnd: NavigationEnd = routerEvent as NavigationEnd;
-          this.activeUrl = navEnd.url;
-        }
-        this.isLoading = false;
+      )
+    ).subscribe((routerEvent: Event) => {
+      if (routerEvent instanceof NavigationEnd) {
+        const navEnd: NavigationEnd = routerEvent as NavigationEnd;
+        this.activeUrl = navEnd.url;
+      }
+      this.isLoading = false;
     });
   }
 

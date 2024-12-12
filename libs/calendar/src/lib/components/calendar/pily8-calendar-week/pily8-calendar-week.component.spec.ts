@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Pily8CaledarWeekComponent } from './pily8-calendar-week.component';
+import { provideRouter } from '@angular/router';
 
 describe('Pily8CaledarWeekComponent', () => {
   let component: Pily8CaledarWeekComponent;
@@ -8,6 +9,9 @@ describe('Pily8CaledarWeekComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Pily8CaledarWeekComponent],
+      providers: [
+        provideRouter([])
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(Pily8CaledarWeekComponent);

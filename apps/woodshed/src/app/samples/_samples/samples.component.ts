@@ -8,11 +8,11 @@ import { MatList, MatListItem } from '@angular/material/list';
   standalone: true,
   imports: [CommonModule, RouterOutlet, MatList, MatListItem, RouterLink],
   templateUrl: './samples.component.html',
-  styleUrl: './samples.component.scss',
+  styleUrl: './samples.component.scss'
 })
 export class SamplesComponent implements OnInit {
   private readonly route: ActivatedRoute = inject(ActivatedRoute);
-  links: { title: string, path: string}[] = [];
+  links: { title: string, path: string }[] = [];
   title = 'Samples';
 
   ngOnInit(): void {
@@ -22,7 +22,7 @@ export class SamplesComponent implements OnInit {
 
   private createContentItem(snapshot: ActivatedRouteSnapshot) {
     if (snapshot.title && (snapshot.routeConfig?.path && !snapshot.routeConfig.path.includes(':'))) {
-      this.links.push({ title: snapshot.title, path: snapshot.routeConfig.path})
+      this.links.push({ title: snapshot.title, path: snapshot.routeConfig.path });
     }
   }
 }

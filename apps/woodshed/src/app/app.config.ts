@@ -17,8 +17,8 @@ export const appConfig: ApplicationConfig = {
         // Register your custom icons here
         return registry.setDefaultFontSetClass(
           'material-symbols-outlined'
-        )
-      },
+        );
+      }
     }
-  ],
+  ]
 };

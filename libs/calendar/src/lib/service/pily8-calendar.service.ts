@@ -6,7 +6,6 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class Pily8CalendarService {
   private readonly route: ActivatedRoute = inject(ActivatedRoute);
-  constructor() { }
   setDateFromRoute(paramMap: ParamMap) {
     const pMonth: string | null = paramMap.get('month');
     const pYear: string | null = paramMap.get('year');

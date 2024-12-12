@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Pily8CalendarToolbarComponent } from './pily8-calendar-toolbar.component';
+import { provideRouter } from '@angular/router';
 
 describe('Pily8CalendarToolbarComponent', () => {
   let component: Pily8CalendarToolbarComponent;
@@ -8,6 +9,9 @@ describe('Pily8CalendarToolbarComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Pily8CalendarToolbarComponent],
+      providers: [
+        provideRouter([])
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(Pily8CalendarToolbarComponent);

@@ -6,13 +6,13 @@ import { expect } from '@storybook/jest';
 
 const meta: Meta<ButtonSampleComponent> = {
   component: ButtonSampleComponent,
-  title: 'ButtonSampleComponent',
+  title: 'ButtonSampleComponent'
 };
 export default meta;
 type Story = StoryObj<ButtonSampleComponent>;
 
 export const Primary: Story = {
-  args: {},
+  args: {}
 };
 
 export const Heading: Story = {
@@ -20,5 +20,5 @@ export const Heading: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     expect(canvas.getByText(/button-sample works!/gi)).toBeTruthy();
-  },
+  }
 };

@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './bordered-content.component.html',
-  styleUrl: './bordered-content.component.scss',
+  styleUrl: './bordered-content.component.scss'
 })
-export class BorderedContentComponent {}
+export class BorderedContentComponent {
+}
