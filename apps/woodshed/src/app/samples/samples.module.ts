@@ -11,4 +11,5 @@ import { SamplesRoutingModule } from './samples-routing.module';
     SamplesRoutingModule
   ]
 })
-export class SamplesModule { }
+export class SamplesModule {
+}

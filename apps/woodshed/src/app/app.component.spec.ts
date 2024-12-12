@@ -9,7 +9,7 @@ describe('AppComponent', () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent, NxWelcomeComponent,
         NoopAnimationsModule,
-        RouterModule.forRoot([])],
+        RouterModule.forRoot([])]
     }).compileComponents();
   });
 

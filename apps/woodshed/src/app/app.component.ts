@@ -21,7 +21,7 @@ import { filter } from 'rxjs/operators';
     MatNavList, MatListItem, MatIcon, MatToolbar, NgForOf, NavigationComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnDestroy, OnInit {
   readonly matIconRegistry: MatIconRegistry = inject(MatIconRegistry);
@@ -61,7 +61,7 @@ export class AppComponent implements OnDestroy, OnInit {
       filter((breakPoint: BreakpointState) => breakPoint.matches)
     )
       .subscribe((breakPoint: BreakpointState) => {
-      console.log(breakPoint);
-    })
+        console.log(breakPoint);
+      });
   }
 }

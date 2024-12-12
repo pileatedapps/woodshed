@@ -7,7 +7,7 @@ describe('LoadingBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LoadingBarComponent],
+      imports: [LoadingBarComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(LoadingBarComponent);

@@ -10,16 +10,15 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
   standalone: true,
   imports: [CommonModule, MatAnchor, MatButton, MatDivider, MatFabButton, MatIcon, MatIconButton, MatMiniFabButton, RouterLink],
   templateUrl: './button-sample.component.html',
-  styleUrl: './button-sample.component.scss',
+  styleUrl: './button-sample.component.scss'
 })
 export class ButtonSampleComponent implements OnInit {
   title = 'Button Samples';
   private readonly route: ActivatedRoute = inject(ActivatedRoute);
 
   ngOnInit(): void {
-    this.title = this.route.snapshot.title ? this.route.snapshot.title : 'Page Title'
+    this.title = this.route.snapshot.title ? this.route.snapshot.title : 'Page Title';
   }
-
 
 
 }

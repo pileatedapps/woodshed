@@ -7,7 +7,7 @@ describe('BorderedContentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BorderedContentComponent],
+      imports: [BorderedContentComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(BorderedContentComponent);

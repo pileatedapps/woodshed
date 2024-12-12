@@ -1,0 +1,39 @@
+<mat-toolbar class="pily8-calendar-toolbar">
+  <div>
+    <button mat-icon-button (click)="navigateToDate()">
+      <mat-icon>calendar_today</mat-icon>
+    </button>
+    <button mat-icon-button (click)="navigateToDate(selectedDate, 'week')">
+      <mat-icon>view_week</mat-icon>
+    </button>
+    <button mat-icon-button (click)="navigateToDate(selectedDate, 'month')">
+      <mat-icon>calendar_view_month</mat-icon>
+    </button>
+  </div>
+
+  <div id="pily8-calendar-toolbar-header-title">
+    <button mat-icon-button
+            [matTooltip]="'Goto Previous Year'" (click)="navigateToDate(adjustYear(selectedDate, -1))">
+      <mat-icon>keyboard_double_arrow_left</mat-icon>
+    </button>
+    <button mat-icon-button
+            [matTooltip]="'Goto Previous Month'" (click)="navigateToDate(adjustMonth(selectedDate, -1))">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <h2>
+      {{selectedDate | date: 'MMMM YYYY'}}
+    </h2>
+    <button mat-icon-button
+            [matTooltip]="'Go to Next Month'" (click)="navigateToDate(adjustMonth(selectedDate, 1))">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+    <button mat-icon-button
+            [matTooltip]="'Goto Next Year'" (click)="navigateToDate(adjustYear(selectedDate, 1))">
+      <mat-icon>keyboard_double_arrow_right</mat-icon>
+    </button>
+  </div>
+  <div>
+
+  </div>
+</mat-toolbar>
+<router-outlet></router-outlet>

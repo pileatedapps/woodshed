@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@pily8/calendar": ["libs/calendar/src/lib"],
+      "@pily8/calendar/*": ["libs/calendar/src/lib/*"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

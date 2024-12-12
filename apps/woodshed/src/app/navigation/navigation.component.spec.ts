@@ -3,8 +3,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NavigationComponent } from './navigation.component';
 import { DOCUMENT } from '@angular/common';
-import { NavigationStart, provideRouter, Router, RouterEvent } from '@angular/router';
-import { of } from 'rxjs';
+import { provideRouter, Router } from '@angular/router';
 import { appRoutes } from '../app.routes';
 
 describe('NavigationComponent', () => {
@@ -47,8 +46,8 @@ describe('NavigationComponent', () => {
   });
 
   it('sets isLoading and activeUrl when navigation ends', async () => {
-    await router.navigate(['samples'])
+    await router.navigate(['samples']);
     expect(component.isLoading).toEqual(false);
     expect(component.activeUrl).toEqual('/samples');
-  })
+  });
 });
