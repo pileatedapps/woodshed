@@ -66,6 +66,20 @@
     .mat-sidenav {
       border-right-color: mat.get-theme-color($theme, primary, 50);
     }
+    --mat-app-primary: #{mat.get-theme-color($theme, neutral, 90)};
+
+    --mat-app-on-surface: #{mat.get-theme-color($theme, neutral, 90)};
+    --mdc-outlined-button-label-text-color: #{mat.get-theme-color($theme, neutral, 90)};
+    --mat-toolbar-container-container-text-color: #{mat.get-theme-color($theme, neutral, 90)};
+    --mdc-text-button-label-text-color: #{mat.get-theme-color($theme, neutral, 90)};
+    --mdc-text-button-label-text-color:  #{mat.get-theme-color($theme, neutral, 90)};
+    --mat-app-primary: #{mat.get-theme-color($theme, neutral, 90)};
+    --mdc-outlined-button-label-text-color: #{mat.get-theme-color($theme, neutral, 90)};
+
+    .mat-mdc-outlined-button:not(:disabled) {
+      color: #{mat.get-theme-color($theme, neutral, 90)};
+      border-color: var(--mdc-outlined-button-outline-color, var(--mat-app-outline));
+    }
   } @else {
     .mat-toolbar {
       background-color: mat.get-theme-color($theme, primary, 80);
@@ -233,4 +247,8 @@ html[theme="red"][mode="dark"] {
   'GRAD' 0,
   'opsz' 24
 
+}
+
+.spacer {
+  flex: 1 1 auto;
 }

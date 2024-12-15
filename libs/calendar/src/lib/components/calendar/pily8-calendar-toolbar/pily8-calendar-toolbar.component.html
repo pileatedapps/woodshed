@@ -1,39 +1,38 @@
 <mat-toolbar class="pily8-calendar-toolbar">
-  <div>
-    <button mat-icon-button (click)="navigateToDate()">
-      <mat-icon>calendar_today</mat-icon>
-    </button>
-    <button mat-icon-button (click)="navigateToDate(selectedDate, 'week')">
-      <mat-icon>view_week</mat-icon>
-    </button>
-    <button mat-icon-button (click)="navigateToDate(selectedDate, 'month')">
-      <mat-icon>calendar_view_month</mat-icon>
-    </button>
-  </div>
-
-  <div id="pily8-calendar-toolbar-header-title">
-    <button mat-icon-button
-            [matTooltip]="'Goto Previous Year'" (click)="navigateToDate(adjustYear(selectedDate, -1))">
-      <mat-icon>keyboard_double_arrow_left</mat-icon>
+  <div id="pily8-calendar-toolbar-header-title" class="mat-title-small">
+    <button mat-stroked-button (click)="navigateToDate()">
+      <mat-icon>calendar_today</mat-icon>Today
     </button>
     <button mat-icon-button
-            [matTooltip]="'Goto Previous Month'" (click)="navigateToDate(adjustMonth(selectedDate, -1))">
+            [matTooltip]="'Goto Previous Calendar'" (click)="navigateToDate(adjustDate(selectedDate, -1))">
       <mat-icon>chevron_left</mat-icon>
     </button>
+    <button mat-icon-button
+            [matTooltip]="'Go to Next Calendar'" (click)="navigateToDate(adjustDate(selectedDate, 1))">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+
     <h2>
       {{selectedDate | date: 'MMMM YYYY'}}
     </h2>
-    <button mat-icon-button
-            [matTooltip]="'Go to Next Month'" (click)="navigateToDate(adjustMonth(selectedDate, 1))">
-      <mat-icon>chevron_right</mat-icon>
-    </button>
-    <button mat-icon-button
-            [matTooltip]="'Goto Next Year'" (click)="navigateToDate(adjustYear(selectedDate, 1))">
-      <mat-icon>keyboard_double_arrow_right</mat-icon>
-    </button>
   </div>
   <div>
-
+    <button mat-stroked-button [matMenuTriggerFor]="calTypeMenu"
+            aria-label="Choose calendar type">
+      <mat-icon *ngIf="calType === 'Month'">calendar_view_month</mat-icon>
+      <mat-icon *ngIf="calType === 'Week'">view_week</mat-icon>
+      <span>{{calType}}</span>
+    </button>
+    <mat-menu #calTypeMenu="matMenu">
+      <button mat-menu-item (click)="changeCalendarType('Week')">
+        <mat-icon>view_week</mat-icon>
+        <span>Week</span>
+      </button>
+      <button mat-menu-item (click)="changeCalendarType('Month')">
+        <mat-icon>calendar_view_month</mat-icon>
+        <span>Month</span>
+      </button>
+    </mat-menu>
   </div>
 </mat-toolbar>
 <router-outlet></router-outlet>
