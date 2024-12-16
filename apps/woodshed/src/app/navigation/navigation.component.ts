@@ -1,6 +1,6 @@
 import { Component, inject, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { AsyncPipe, DOCUMENT, NgIf, UpperCasePipe } from '@angular/common';
+import { AsyncPipe, DOCUMENT, NgIf } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -14,7 +14,6 @@ import {
   NavigationStart,
   Router,
   RouterLink,
-  RouterLinkActive,
   RouterOutlet
 } from '@angular/router';
 import { MatTooltip } from '@angular/material/tooltip';
@@ -27,7 +26,6 @@ import { MatProgressBar } from '@angular/material/progress-bar';
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss',
-  standalone: true,
   imports: [
     MatToolbarModule,
     MatButtonModule,
@@ -36,7 +34,6 @@ import { MatProgressBar } from '@angular/material/progress-bar';
     AsyncPipe,
     RouterOutlet,
     RouterLink,
-    RouterLinkActive,
     MatIconModule,
     MatTooltip,
     MatButtonToggleGroup,
@@ -44,7 +41,6 @@ import { MatProgressBar } from '@angular/material/progress-bar';
     MatMenu,
     MatMenuTrigger,
     MatMenuItem,
-    UpperCasePipe,
     MatProgressBar,
     NgIf
   ]

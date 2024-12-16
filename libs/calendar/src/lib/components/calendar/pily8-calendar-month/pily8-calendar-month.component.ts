@@ -6,14 +6,13 @@ import { Subscription } from 'rxjs';
 import { Pily8CalendarService } from '../../../service/pily8-calendar.service';
 
 @Component({
-  selector: 'pily8-cal-calendar',
-  standalone: true,
-  imports: [CommonModule],
-  providers: [
-    provideNativeDateAdapter()
-  ],
-  templateUrl: './pily8-calendar-month.component.html',
-  styleUrl: './pily8-calendar-month.component.scss',
+    selector: 'pily8-cal-calendar',
+    imports: [CommonModule],
+    providers: [
+        provideNativeDateAdapter()
+    ],
+    templateUrl: './pily8-calendar-month.component.html',
+    styleUrl: './pily8-calendar-month.component.scss'
 })
 export class Pily8CalendarMonthComponent implements OnInit, OnDestroy {
   private readonly route: ActivatedRoute = inject(ActivatedRoute);

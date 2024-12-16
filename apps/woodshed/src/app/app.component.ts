@@ -1,24 +1,11 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
-import { NgClass, NgForOf } from '@angular/common';
-import { MatSidenav, MatSidenavContainer, MatSidenavContent } from '@angular/material/sidenav';
-import { MatListItem, MatNavList } from '@angular/material/list';
-import { MatIcon, MatIconRegistry } from '@angular/material/icon';
-import { MatToolbar } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
+import { MatIconRegistry } from '@angular/material/icon';
 import { BreakpointObserver, Breakpoints, BreakpointState, MediaMatcher } from '@angular/cdk/layout';
 import { NavigationComponent } from './navigation/navigation.component';
 import { filter } from 'rxjs/operators';
 
 @Component({
-  standalone: true,
-  imports: [NxWelcomeComponent, RouterModule,
-    NgClass,
-    MatSidenavContainer, MatSidenav,
-    MatSidenavContent,
-    MatButtonModule,
-    MatNavList, MatListItem, MatIcon, MatToolbar, NgForOf, NavigationComponent],
+  imports: [NavigationComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

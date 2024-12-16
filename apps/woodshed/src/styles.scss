@@ -5,202 +5,204 @@
 @use 'styles/m3-pale-green-theme' as m3-pale-green-theme;
 @use 'styles/m3-red-theme' as m3-red-theme;
 
-@include mat.core();
-
-@mixin theme-mixin($theme, $dark: false) {
-  @if $dark {
-    .mat-app-background {
-      background-color: mat.get-theme-color($theme, neutral, 10);
-      color: mat.get-theme-color($theme, neutral, 96);
-    }
-
-    .mat-toolbar {
-      background-color: mat.get-theme-color($theme, neutral, 20);
-      color: mat.get-theme-color($theme, secondary, 90);
-      border-bottom-color: mat.get-theme-color($theme, primary, 50);
-
-      .mat-icon {
-        color: mat.get-theme-color($theme, secondary, 90);
-      }
-
-      .mat-button-toggle-checked {
-        color: mat.get-theme-color($theme, neutral, 90);
-        background-color: mat.get-theme-color($theme, neutral, 10);
-      }
-
-      .mat-pseudo-checkbox {
-        --mat-minimal-pseudo-checkbox-selected-checkmark-color: mat.get-theme-color($theme, neutral, 90);
-      }
-    }
-
-    #main-sidenav {
-      .mat-toolbar {
-        background-color: mat.get-theme-color($theme, neutral, 20);
-        color: mat.get-theme-color($theme, secondary, 90);
-        border-bottom-color: mat.get-theme-color($theme, primary, 50);
-
-        .mat-icon {
-          color: mat.get-theme-color($theme, secondary, 90);
-        }
-
-        .mat-button-toggle-checked {
-          color: mat.get-theme-color($theme, neutral, 90);
-          background-color: mat.get-theme-color($theme, neutral, 10);
-        }
-
-        .mat-pseudo-checkbox {
-          --mat-minimal-pseudo-checkbox-selected-checkmark-color: #{mat.get-theme-color($theme, neutral, 90)};
-        }
-      }
-
-      #main-nav-list {
-        --mdc-list-list-item-label-text-color: #{mat.get-theme-color($theme, neutral, 90)};
-        --mat-list-active-indicator-color: #{mat.get-theme-color($theme, neutral, 10)};
-        --mat-list-active-indicator-shape: none;
-      }
+@include mat.elevation-classes();
+@include mat.app-background();
 
 
-      background-color: mat.get-theme-color($theme, neutral, 20);
-    }
-
-    .mat-sidenav {
-      border-right-color: mat.get-theme-color($theme, primary, 50);
-    }
-    --mat-app-primary: #{mat.get-theme-color($theme, neutral, 90)};
-
-    --mat-app-on-surface: #{mat.get-theme-color($theme, neutral, 90)};
-    --mdc-outlined-button-label-text-color: #{mat.get-theme-color($theme, neutral, 90)};
-    --mat-toolbar-container-container-text-color: #{mat.get-theme-color($theme, neutral, 90)};
-    --mdc-text-button-label-text-color: #{mat.get-theme-color($theme, neutral, 90)};
-    --mdc-text-button-label-text-color:  #{mat.get-theme-color($theme, neutral, 90)};
-    --mat-app-primary: #{mat.get-theme-color($theme, neutral, 90)};
-    --mdc-outlined-button-label-text-color: #{mat.get-theme-color($theme, neutral, 90)};
-
-    .mat-mdc-outlined-button:not(:disabled) {
-      color: #{mat.get-theme-color($theme, neutral, 90)};
-      border-color: var(--mdc-outlined-button-outline-color, var(--mat-app-outline));
-    }
-  } @else {
-    .mat-toolbar {
-      background-color: mat.get-theme-color($theme, primary, 80);
-      color: mat.get-theme-color($theme, secondary, 10);
-      border-bottom-color: mat.get-theme-color($theme, primary, 50);
-
-      .mat-icon {
-        color: mat.get-theme-color($theme, secondary, 10);
-      }
-
-      .mat-button-toggle-checked {
-        color: mat.get-theme-color($theme, neutral, 10);
-        background-color: mat.get-theme-color($theme, primary, 70);
-      }
-
-      .mat-pseudo-checkbox {
-        --mat-minimal-pseudo-checkbox-selected-checkmark-color: mat.get-theme-color($theme, neutral, 10);
-      }
-    }
-
-    #main-sidenav {
-      .mat-toolbar {
-        background-color: mat.get-theme-color($theme, primary, 80);
-        color: mat.get-theme-color($theme, neutral, 10);
-        border-bottom-color: mat.get-theme-color($theme, primary, 50);
-
-        .mat-icon {
-          color: mat.get-theme-color($theme, neutral, 10);
-        }
-
-        .mat-button-toggle-checked {
-          color: mat.get-theme-color($theme, neutral, 10);
-          background-color: mat.get-theme-color($theme, primary, 70);
-        }
-
-        .mat-pseudo-checkbox {
-          --mat-minimal-pseudo-checkbox-selected-checkmark-color: #{mat.get-theme-color($theme, neutral, 10)};
-        }
-      }
-
-      #main-nav-list {
-        --mdc-list-list-item-label-text-color: #{mat.get-theme-color($theme, neutral, 10)};
-        --mat-list-active-indicator-color: #{mat.get-theme-color($theme, primary, 70)};
-        --mat-list-active-indicator-shape: none;
-      }
-
-
-      background-color: mat.get-theme-color($theme, primary, 80);
-    }
-
-    .mat-sidenav {
-      border-right-color: mat.get-theme-color($theme, primary, 50);
-    }
-  }
-
-  #main-content {
-    position: relative;
-    height: 100%;
-
-    a {
-      text-decoration: underline;
-      color: mat.get-theme-color($theme, primary, 80);
-    }
-
-    a:hover {
-      color: mat.get-theme-color($theme, tertiary, 70);
-      opacity: 1 !important;
-    }
-
-    a:visited:not([mat-button]), a:visited[mat-button].mat-unthemed:not(:disabled) {
-      color: mat.get-theme-color($theme, secondary, 50);
-    }
-
-    button[disabled] {
-      background-color: mat.get-theme-color($theme, neutral, 70);
-      color: mat.get-theme-color($theme, neutral, 10);
-      border-color: mat.get-theme-color($theme, neutral, 20);
-    }
-
-    a[disabled] {
-      color: mat.get-theme-color($theme, neutral, 40);
-    }
-
-    .button-primary {
-      background-color: mat.get-theme-color($theme, primary, 50);
-      color: mat.get-theme-color($theme, neutral, 90);
-    }
-
-    .button-secondary, .button-accent {
-      background-color: mat.get-theme-color($theme, secondary, 90);
-      color: mat.get-theme-color($theme, neutral, 10);
-    }
-
-    .button-warn {
-      background-color: mat.get-theme-color($theme, error, 40);
-      color: mat.get-theme-color($theme, neutral, 90);
-    }
-  }
-
-  .bordered-content {
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 10px;
-    border-color: mat.get-theme-color($theme, neutral, 50);
-    margin: 15px;
-    padding: 15px;
-  }
-
-  .grid-item:not(.calendar-current) {
-    background-color: mat.get-theme-color($theme, neutral, 60);
-  }
-
-  .grid-item.date-today {
-    background-color: mat.get-theme-color($theme, primary, 70);
-  }
-
-  .grid-item.date-selected {
-    background-color: mat.get-theme-color($theme, tertiary, 40);
-  }
-
-}
+//@mixin theme-mixin($theme, $dark: false) {
+//  @if $dark {
+//    .mat-app-background {
+//      background-color: mat.get-theme-color($theme, neutral, 10);
+//      color: mat.get-theme-color($theme, neutral, 96);
+//    }
+//
+//    .mat-toolbar {
+//      background-color: mat.get-theme-color($theme, neutral, 20);
+//      color: mat.get-theme-color($theme, secondary, 90);
+//      border-bottom-color: mat.get-theme-color($theme, primary, 50);
+//
+//      .mat-icon {
+//        color: mat.get-theme-color($theme, secondary, 90);
+//      }
+//
+//      .mat-button-toggle-checked {
+//        color: mat.get-theme-color($theme, neutral, 90);
+//        background-color: mat.get-theme-color($theme, neutral, 10);
+//      }
+//
+//      .mat-pseudo-checkbox {
+//        --mat-minimal-pseudo-checkbox-selected-checkmark-color: mat.get-theme-color($theme, neutral, 90);
+//      }
+//    }
+//
+//    #main-sidenav {
+//      .mat-toolbar {
+//        background-color: mat.get-theme-color($theme, neutral, 20);
+//        color: mat.get-theme-color($theme, secondary, 90);
+//        border-bottom-color: mat.get-theme-color($theme, primary, 50);
+//
+//        .mat-icon {
+//          color: mat.get-theme-color($theme, secondary, 90);
+//        }
+//
+//        .mat-button-toggle-checked {
+//          color: mat.get-theme-color($theme, neutral, 90);
+//          background-color: mat.get-theme-color($theme, neutral, 10);
+//        }
+//
+//        .mat-pseudo-checkbox {
+//          --mat-minimal-pseudo-checkbox-selected-checkmark-color: #{mat.get-theme-color($theme, neutral, 90)};
+//        }
+//      }
+//
+//      #main-nav-list {
+//        --mdc-list-list-item-label-text-color: #{mat.get-theme-color($theme, neutral, 90)};
+//        --mat-list-active-indicator-color: #{mat.get-theme-color($theme, neutral, 10)};
+//        --mat-list-active-indicator-shape: none;
+//      }
+//
+//
+//      background-color: mat.get-theme-color($theme, neutral, 20);
+//    }
+//
+//    .mat-sidenav {
+//      border-right-color: mat.get-theme-color($theme, primary, 50);
+//    }
+//    --mat-app-primary: #{mat.get-theme-color($theme, neutral, 90)};
+//
+//    --mat-app-on-surface: #{mat.get-theme-color($theme, neutral, 90)};
+//    --mdc-outlined-button-label-text-color: #{mat.get-theme-color($theme, neutral, 90)};
+//    --mat-toolbar-container-container-text-color: #{mat.get-theme-color($theme, neutral, 90)};
+//    --mdc-text-button-label-text-color: #{mat.get-theme-color($theme, neutral, 90)};
+//    --mdc-text-button-label-text-color:  #{mat.get-theme-color($theme, neutral, 90)};
+//    --mat-app-primary: #{mat.get-theme-color($theme, neutral, 90)};
+//    --mdc-outlined-button-label-text-color: #{mat.get-theme-color($theme, neutral, 90)};
+//
+//    .mat-mdc-outlined-button:not(:disabled) {
+//      color: #{mat.get-theme-color($theme, neutral, 90)};
+//      border-color: var(--mdc-outlined-button-outline-color, var(--mat-app-outline));
+//    }
+//  } @else {
+//    .mat-toolbar {
+//      background-color: mat.get-theme-color($theme, primary, 80);
+//      color: mat.get-theme-color($theme, secondary, 10);
+//      border-bottom-color: mat.get-theme-color($theme, primary, 50);
+//
+//      .mat-icon {
+//        color: mat.get-theme-color($theme, secondary, 10);
+//      }
+//
+//      .mat-button-toggle-checked {
+//        color: mat.get-theme-color($theme, neutral, 10);
+//        background-color: mat.get-theme-color($theme, primary, 70);
+//      }
+//
+//      .mat-pseudo-checkbox {
+//        --mat-minimal-pseudo-checkbox-selected-checkmark-color: mat.get-theme-color($theme, neutral, 10);
+//      }
+//    }
+//
+//    #main-sidenav {
+//      .mat-toolbar {
+//        background-color: mat.get-theme-color($theme, primary, 80);
+//        color: mat.get-theme-color($theme, neutral, 10);
+//        border-bottom-color: mat.get-theme-color($theme, primary, 50);
+//
+//        .mat-icon {
+//          color: mat.get-theme-color($theme, neutral, 10);
+//        }
+//
+//        .mat-button-toggle-checked {
+//          color: mat.get-theme-color($theme, neutral, 10);
+//          background-color: mat.get-theme-color($theme, primary, 70);
+//        }
+//
+//        .mat-pseudo-checkbox {
+//          --mat-minimal-pseudo-checkbox-selected-checkmark-color: #{mat.get-theme-color($theme, neutral, 10)};
+//        }
+//      }
+//
+//      #main-nav-list {
+//        --mdc-list-list-item-label-text-color: #{mat.get-theme-color($theme, neutral, 10)};
+//        --mat-list-active-indicator-color: #{mat.get-theme-color($theme, primary, 70)};
+//        --mat-list-active-indicator-shape: none;
+//      }
+//
+//
+//      background-color: mat.get-theme-color($theme, primary, 80);
+//    }
+//
+//    .mat-sidenav {
+//      border-right-color: mat.get-theme-color($theme, primary, 50);
+//    }
+//  }
+//
+//  #main-content {
+//    position: relative;
+//    height: 100%;
+//
+//    a {
+//      text-decoration: underline;
+//      color: mat.get-theme-color($theme, primary, 80);
+//    }
+//
+//    a:hover {
+//      color: mat.get-theme-color($theme, tertiary, 70);
+//      opacity: 1 !important;
+//    }
+//
+//    a:visited:not([mat-button]), a:visited[mat-button].mat-unthemed:not(:disabled) {
+//      color: mat.get-theme-color($theme, secondary, 50);
+//    }
+//
+//    button[disabled] {
+//      background-color: mat.get-theme-color($theme, neutral, 70);
+//      color: mat.get-theme-color($theme, neutral, 10);
+//      border-color: mat.get-theme-color($theme, neutral, 20);
+//    }
+//
+//    a[disabled] {
+//      color: mat.get-theme-color($theme, neutral, 40);
+//    }
+//
+//    .button-primary {
+//      background-color: mat.get-theme-color($theme, primary, 50);
+//      color: mat.get-theme-color($theme, neutral, 90);
+//    }
+//
+//    .button-secondary, .button-accent {
+//      background-color: mat.get-theme-color($theme, secondary, 90);
+//      color: mat.get-theme-color($theme, neutral, 10);
+//    }
+//
+//    .button-warn {
+//      background-color: mat.get-theme-color($theme, error, 40);
+//      color: mat.get-theme-color($theme, neutral, 90);
+//    }
+//  }
+//
+//  .bordered-content {
+//    border-style: solid;
+//    border-width: 1px;
+//    border-radius: 10px;
+//    border-color: mat.get-theme-color($theme, neutral, 50);
+//    margin: 15px;
+//    padding: 15px;
+//  }
+//
+//  .grid-item:not(.calendar-current) {
+//    background-color: mat.get-theme-color($theme, neutral, 60);
+//  }
+//
+//  .grid-item.date-today {
+//    background-color: mat.get-theme-color($theme, primary, 70);
+//  }
+//
+//  .grid-item.date-selected {
+//    background-color: mat.get-theme-color($theme, tertiary, 40);
+//  }
+//
+//}
 
 html, body {
   height: 100%;
@@ -211,29 +213,29 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-html[theme="pale-blue"][mode="light"] {
-  @include theme-mixin(m3-pale-blue-theme.$light-theme, $dark: false);
-}
+//html[theme="pale-blue"][mode="light"] {
+//  @include theme-mixin(m3-pale-blue-theme.$light-theme, $dark: false);
+//}
+//
+//html[theme="pale-blue"][mode="dark"] {
+//  @include theme-mixin(m3-pale-blue-theme.$dark-theme, $dark: true);
+//}
+//
+//html[theme="pale-green"][mode="light"] {
+//  @include theme-mixin(m3-pale-green-theme.$light-theme, $dark: false);
+//}
+//
+//html[theme="pale-green"][mode="dark"] {
+//  @include theme-mixin(m3-pale-green-theme.$dark-theme, $dark: true);
+//}
+//
+//html[theme="red"][mode="light"] {
+//  @include theme-mixin(m3-red-theme.$light-theme, $dark: false);
+//}
 
-html[theme="pale-blue"][mode="dark"] {
-  @include theme-mixin(m3-pale-blue-theme.$dark-theme, $dark: true);
-}
-
-html[theme="pale-green"][mode="light"] {
-  @include theme-mixin(m3-pale-green-theme.$light-theme, $dark: false);
-}
-
-html[theme="pale-green"][mode="dark"] {
-  @include theme-mixin(m3-pale-green-theme.$dark-theme, $dark: true);
-}
-
-html[theme="red"][mode="light"] {
-  @include theme-mixin(m3-red-theme.$light-theme, $dark: false);
-}
-
-html[theme="red"][mode="dark"] {
-  @include theme-mixin(m3-red-theme.$dark-theme, $dark: true);
-}
+//html[theme="red"][mode="dark"] {
+//  @include m3-red-theme.$dark-theme;
+//}
 
 
 .material-symbols-large {

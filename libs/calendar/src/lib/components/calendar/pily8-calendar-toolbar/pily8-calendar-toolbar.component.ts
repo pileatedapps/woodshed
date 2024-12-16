@@ -4,21 +4,19 @@ import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatTooltip } from '@angular/material/tooltip';
-import { MatSuffix } from '@angular/material/form-field';
 import { ActivatedRoute, ParamMap, Router, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Pily8CalendarService } from '../../../service/pily8-calendar.service';
-import { MatOption, MatSelect } from '@angular/material/select';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 
 export type CalType = 'Day' | 'Week' | 'Month' | 'Agenda';
 
 @Component({
-  selector: 'pily8-cal-calendar-toolbar',
-  standalone: true,
-  imports: [CommonModule, MatButton, MatIcon, MatToolbar, MatTooltip, MatIconButton, MatSuffix, RouterOutlet, MatSelect, MatOption, MatMenuTrigger, MatMenu, MatMenuItem],
-  templateUrl: './pily8-calendar-toolbar.component.html',
-  styleUrl: './pily8-calendar-toolbar.component.scss',
+    selector: 'pily8-cal-calendar-toolbar',
+    imports: [CommonModule, MatButton, MatIcon, MatToolbar, MatTooltip, MatIconButton, RouterOutlet, MatMenuTrigger, MatMenu, MatMenuItem],
+    standalone: true,
+    templateUrl: './pily8-calendar-toolbar.component.html',
+    styleUrl: './pily8-calendar-toolbar.component.scss'
 })
 export class Pily8CalendarToolbarComponent implements OnInit, OnDestroy {
   private readonly route: ActivatedRoute = inject(ActivatedRoute);

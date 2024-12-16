@@ -1,12 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, ActivatedRouteSnapshot, RouterLink, RouterOutlet } from '@angular/router';
-import { MatList, MatListItem } from '@angular/material/list';
 
 @Component({
   selector: 'app-samples',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet, MatList, MatListItem, RouterLink],
+  imports: [CommonModule, RouterOutlet, RouterLink],
   templateUrl: './samples.component.html',
   styleUrl: './samples.component.scss'
 })

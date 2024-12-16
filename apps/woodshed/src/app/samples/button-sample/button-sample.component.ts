@@ -7,7 +7,6 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-button-sample',
-  standalone: true,
   imports: [CommonModule, MatAnchor, MatButton, MatDivider, MatFabButton, MatIcon, MatIconButton, MatMiniFabButton, RouterLink],
   templateUrl: './button-sample.component.html',
   styleUrl: './button-sample.component.scss'
