@@ -1,6 +1,7 @@
 .pily8-calendar-toolbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: sticky;
 }
 
@@ -8,4 +9,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.spacer {
+  flex: 1 1 auto;
 }
