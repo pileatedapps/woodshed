@@ -1,12 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
 @use '@angular/material' as mat;
-@use 'styles/m3-pale-blue-theme' as m3-pale-blue-theme;
-@use 'styles/m3-pale-green-theme' as m3-pale-green-theme;
-@use 'styles/m3-red-theme' as m3-red-theme;
+
+@use 'styles/themes.scss';
 
 @include mat.elevation-classes();
 @include mat.app-background();
+
+
 
 
 //@mixin theme-mixin($theme, $dark: false) {

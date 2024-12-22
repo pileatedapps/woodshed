@@ -15,6 +15,7 @@
         "outputPath": "dist/apps/woodshed",
         "index": "apps/woodshed/src/index.html",
         "browser": "apps/woodshed/src/main.ts",
+
         "polyfills": [
           "zone.js"
         ],
