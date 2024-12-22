@@ -1,0 +1,25 @@
+@use '@angular/material' as mat;
+@use './m3-pale-blue-theme' as m3-pale-blue-theme;
+@use './m3-pale-green-theme' as m3-pale-green-theme;
+@use './m3-red-theme' as m3-red-theme;
+
+html[theme="red"][mode="dark"]{
+  color-scheme: light dark;
+  @include mat.theme((
+    color: (
+      primary: mat.$cyan-palette,
+      tertiary: mat.$orange-palette,
+    ),
+    typography: Roboto,
+    density: 0
+  ));
+
+
+
+  body {
+    background: var(--mat-sys-surface);
+    color: var(--mat-sys-on-surface);
+  }
+}
+
+
